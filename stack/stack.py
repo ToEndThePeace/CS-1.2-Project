@@ -25,7 +25,7 @@ LinkedList = listLib.LinkedList
 #         self.storage = []
 
 #     def __len__(self):
-#         return self.size       
+#         return self.size
 
 #     def push(self, value):
 #         self.size += 1
@@ -40,19 +40,20 @@ LinkedList = listLib.LinkedList
 #         self.storage.remove(val)
 #         return val
 
+
 class Stack:
     def __init__(self):
         self.size = 0
         self.storage = LinkedList()
-    
+
     def __len__(self):
         return self.size
-    
+
     def push(self, value):
         self.size += 1
         self.storage.add_to_tail(value)
         return
-    
+
     def pop(self):
         if self.size == 0:
             return
