@@ -77,9 +77,16 @@ class BSTNode:
     def in_order_print(self, node):
         if node.left:
             node.left.in_order_print(node.left)
-        print(node.value)
+        print(node.value) # root
         if node.right:
             node.right.in_order_print(node.right)
+
+    # def in_order_print(self):
+    #     if self.left:
+    #         self.left.in_order_print()
+    #     print(self.value)
+    #     if self.right:
+    #         self.right.in_order_print()
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
@@ -98,18 +105,18 @@ class BSTNode:
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        # stack = []
-        # stack.append(node)
+        stack = []
+        stack.append(node)
 
-        # while len(stack) > 0:
-        #     current = stack.pop()
-        #     if current.right:
-        #         stack.append(current.right)
-        #     if current.left:
-        #         stack.append(current.left)
-        #     print(current.value)
+        while len(stack) > 0:
+            current = stack.pop()
+            if current.right:
+                stack.append(current.right)
+            if current.left:
+                stack.append(current.left)
+            print(current.value)
         # ^ really don't need all that stuff
-        node.pre_order_dft(node)
+        # node.pre_order_dft(node)
 
     # Stretch Goals -------------------------
     # Note: Research may be required
@@ -129,7 +136,6 @@ class BSTNode:
         if node.right:
             node.right.post_order_dft(node.right)
         print(node.value)
-        pass
 
 
 # x = BSTNode(5)
@@ -164,10 +170,11 @@ class BSTNode:
 # z.insert(16)
 # z.insert(12)
 # z.insert(14)
+# z.dft_print(z)
 # z.pre_order_dft(z)
 # print("\n===\n")
 # z.post_order_dft(z)
 # print("\n===\n")
-# z.in_order_print(z)
+# z.in_order_print()
 # print("\n===\n")
 # z.bft_print(z)
