@@ -18,6 +18,15 @@ class LinkedList:
         self.head = None
         self.tail = None
 
+    def __str__(self):
+        text = "============>\n= List:\n= "
+        current = self.head
+        while current:
+            text += f"{current.get_value()} "
+            current = current.get_next()
+        text += "\n=====/"
+        return text
+
     def is_empty(self):
         return True if self.head is None and self.tail is None else False
 
@@ -112,3 +121,30 @@ class LinkedList:
             # update the current node to the next node in the list
             current = current.get_next()
         return max_value
+
+    def reverse(self, node, prev=None):
+        if node is None:
+            return
+        if node.get_next() is None:
+            self.head = node
+        next = node.get_next()
+        node.set_next(prev)
+        self.reverse(next, node)
+
+
+x = LinkedList()
+x.add_to_tail(0)
+x.add_to_tail(1)
+x.add_to_tail(2)
+x.add_to_tail(3)
+x.add_to_tail(4)
+x.add_to_tail(5)
+x.add_to_tail(6)
+x.add_to_tail(7)
+x.add_to_tail(8)
+x.add_to_tail(9)
+print(x)
+x.reverse(x.head)
+print(x)
+x.reverse(x.head)
+print(x)
